@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://hlrghe0e8gr4"]
+
+[ext_resource type="Texture2D" uid="uid://bs4dbnimoiwo2" path="res://art/arrows.webp" id="1_0iavb"]
+[ext_resource type="Script" uid="uid://jgbf61lmm2fx" path="res://objects/key_listener.gd" id="2_n3w4c"]
+
+[sub_resource type="Animation" id="Animation_n3w4c"]
+resource_name = "Glow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlowOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.3, 1.3, 1.3, 1), Color(1.30196, 1.30196, 1.30196, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sopvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlowOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.3, 1.3, 1.3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3tt3"]
+_data = {
+&"Glow": SubResource("Animation_n3w4c"),
+&"RESET": SubResource("Animation_sopvo")
+}
+
+[node name="Arrows" type="Sprite2D"]
+texture = ExtResource("1_0iavb")
+hframes = 4
+vframes = 3
+script = ExtResource("2_n3w4c")
+key_name = null
+
+[node name="Random" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="GlowOverlay" type="Sprite2D" parent="."]
+modulate = Color(1.3, 1.3, 1.3, 1)
+texture = ExtResource("1_0iavb")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w3tt3")
+}
+
+[connection signal="timeout" from="Random" to="." method="_on_random_timeout"]
