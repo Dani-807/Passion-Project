@@ -49,13 +49,12 @@ Each timing gives a different score and affects the combo multiplier. Visual fee
 | ------------------ | ------------------------------ |
 | `A`, `W`, `S`, `D` | Hit corresponding falling keys |
 
-(These may change based on your assigned lanes.)
 
 ---
 
 ## 💡 Inspirations
 
-* The tutorial by **Lurea** was a major guide and reference point. I adapted and extended its logic for my own version.
+* The tutorial by **Luera** was a major guide and reference point. I adapted and extended its logic for my own version.
 * Games like **Dance Dance Revolution**, **Friday Night Funkin’**, and **osu!** were inspirational for core mechanics.
 
 ---
@@ -81,7 +80,7 @@ Each timing gives a different score and affects the combo multiplier. Visual fee
 ## 🙌 Credits
 
 * **Coding, design, and chaotic energy**: Me
-* **Tutorial inspiration**: Lurea
+* **Tutorial inspiration**: Luera
 * **Teacher**: For letting us be creative
 * **Godot Engine**: For making game dev accessible
 
